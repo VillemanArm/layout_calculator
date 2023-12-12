@@ -1,12 +1,18 @@
 import './css/base.sass';
-import Component from './components/Component';
+import Header from './components/Header'
+import BaseBlock from './components/BaseBlock'
+import AdditionalBlock from './components/AdditionalBlock'
+import Total from './components/Total';
 
 
 function App() {
   return (
     <div className="App">
+      <Header />
+      <BaseBlock />
+      <AdditionalBlock />
       
-      <Component />
+      <Total />
 
     </div>
   );
