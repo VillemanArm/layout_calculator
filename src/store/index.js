@@ -1,8 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit' // подключаем хранилище
-import slice from './slice'
+import calculatorSlice from './calculatorSlice'
 
 export default configureStore({ // экспортируем настроенное хранилище
     reducer: {
-        name: slice, // имя редюсера и сам редюсер
+        calculator: calculatorSlice, // имя редюсера и сам редюсер
     }
 })
