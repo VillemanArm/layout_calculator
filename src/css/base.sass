@@ -1,31 +1,63 @@
-
-
-/*# sourceMappingURL=style.sass.map */
-
 @import normalize
 
-// @font-face 
-//     font-family: 'Roboto'
-//     src: url('../fonts/Roboto_700.woff2')
-//     font-style: normal
-//     font-weight: 700
+@font-face 
+    font-family: 'Roboto'
+    src: url('../fonts/Roboto_700.woff2')
+    font-style: normal
+    font-weight: 700
 
+@font-face 
+    font-family: "Inter"
+    font-weight: 400
+    font-display: swap
+    font-style: normal
+    font-named-instance: "Regular"
+    src: url("../fonts/Inter-Regular.woff2") format("woff2")
 
-// $header-font: Roboto
-// $primary-color: #FFFBF5
-// $second-color: #F0B94D
-// $background-color: #37343A
-// $block-color: #636362
-// $dark-background-color: #333036
-// $input-background: #63666e
-// $basic-font-size: 2.4rem
-// $basic-font-size-mobile: 1.6rem
+$header-font: Roboto
+$primary-color: #FFFBF5
+$second-color: #F0B94D
+$background-color: #37343A
+$block-color: #636362
+$dark-background-color: #333036
+$input-background: #63666e
+$basic-font-size: 2.4rem
+$basic-font-size-mobile: 1.6rem
 
 * 
     margin: 0
     padding: 0
     box-sizing: border-box
 
+
+html 
+    font-size: 10px
+
+
+body
+    background-color: $background-color
+    font-family: 'Inter', sans-serif
+    color: $primary-color
+
+a
+    color: $primary-color
+    text-decoration: none
+
+
+h1
+    font-family: $header-font
+    font-size: 6.6rem
+    margin: 0
+
+h2 
+    font-family: $header-font
+    font-size: 5.8rem
+    margin-bottom: 4rem
+
+h3 
+    font-family: $header-font
+    font-size: 3.4rem
+    margin-bottom: 4rem
 
 html 
     font-size: 10px
