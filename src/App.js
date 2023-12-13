@@ -10,8 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <BaseBlock />
-      <AdditionalBlock />
-      
+      <AdditionalBlock />    
       <Total />
 
     </div>

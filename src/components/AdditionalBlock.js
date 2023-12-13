@@ -1,18 +1,32 @@
 import { useDispatch, useSelector } from "react-redux"
-import {action} from "../store/slice"
-import { useState } from "react"
+import {changeAdditional, calculate} from "../store/calculatorSlice"
+import { useEffect } from "react"
 
 const Component = () => {
-    const [text, setText] = useState('')
+    const additionalServices = useSelector(store => store.calculator.additional) 
 
-    const data = useSelector(store => store.name.data) // принимает функцию, которая принимает store и возвращает его содержимое с путем store.reducerName.reducerStateContent
-
-    const dispatch = useDispatch() // нужно прописать, иначе диспетчер не сработает
-    const doAction = () => dispatch(action({text})) // функция вызывает диспетчер, который вызывает событие addTodo, данные надо передавать через объектт, чтобы их потом можно было разделить.
+    const dispatch = useDispatch() 
+    
+    useEffect(() => { dispatch(calculate()) })    
     
     return (
-        <div className="">
-            
+        <div className="additional">
+            {additionalServices.map(service => {
+                return (
+                    <div key={service.name} className="additional__service">                       
+                        <span>{service.name}</span>
+                        <span>cost: +{service.percentCost}%</span>
+                        <input 
+                            type="checkbox"   
+                            onChange={e => {
+                                dispatch(changeAdditional({name: service.name, isSelected: e.target.checked}))
+                            }} 
+                        />
+                        <div className="service__description"></div>
+                    </div>
+                )
+            })
+            }
         </div>
     )
 }

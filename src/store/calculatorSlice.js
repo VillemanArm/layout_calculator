@@ -6,7 +6,7 @@ const calculatorSlice = createSlice({
         base: [
             {
                 name: 'Simple block',
-                description: '',
+                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis consequatur, modi perferendis vel a deserunt cupiditate quibusdam odit nesciunt, culpa distinctio corporis aspernatur',
                 cost: 3,
                 amount: 0
             },
@@ -35,11 +35,12 @@ const calculatorSlice = createSlice({
                 isSelected: false,
             },
         ],
-        total: 0
+        totalCost: 0,
+        baseCost: 0
     },
     reducers: { // здесь хранятся функции приложения
         clear(state, action) { // фнкции принимают состояния и действия
-            if (state.total > 0) {
+            if (state.totalCost > 0) {
                 state.base = state.base.map(service => {
                     service.amount = 0
                     return service
@@ -48,7 +49,8 @@ const calculatorSlice = createSlice({
                     service.isSelected = false
                     return service
                 })
-                state.total = 0
+                state.totalCost = 0
+                state.baseCost = 0
             }          
         }, 
 
@@ -71,13 +73,16 @@ const calculatorSlice = createSlice({
         },  
         
         calculate(state, action) {
-            let total = 0
-            state.base.forEach(service => {total += service.cost * service.amount})
+            let baseCost = 0    
+            state.base.forEach(service => {baseCost += service.cost * service.amount})
+            state.baseCost = baseCost
+
+            let fullCost = baseCost
             state.additional.forEach(service => {
-                if (service.isSelected) total *= (1 + service.percentCost/100)
+                if (service.isSelected) fullCost += baseCost * service.percentCost/100
             })
             
-            state.total = total
+            state.totalCost = Math.ceil(fullCost)
         }
         },
     }

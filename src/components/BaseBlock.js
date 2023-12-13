@@ -1,17 +1,37 @@
 import { useDispatch, useSelector } from "react-redux"
-import {action} from "../store/slice"
-import { useState } from "react"
+import {changeBase, calculate} from "../store/calculatorSlice"
+import { useEffect } from "react"
 
 const Component = () => {
-    const [text, setText] = useState('')
+    const baseServices = useSelector(store => store.calculator.base) 
+    const baseCost = useSelector(store => store.calculator.baseCost) 
+    const dispatch = useDispatch() 
 
-    const data = useSelector(store => store.name.data) // принимает функцию, которая принимает store и возвращает его содержимое с путем store.reducerName.reducerStateContent
-
-    const dispatch = useDispatch() // нужно прописать, иначе диспетчер не сработает
-    const doAction = () => dispatch(action({text})) // функция вызывает диспетчер, который вызывает событие addTodo, данные надо передавать через объектт, чтобы их потом можно было разделить.
+    useEffect(() => { dispatch(calculate()) })
     
     return (
-        <div className="">
+        <div className="base">
+            {baseServices.map(service => {
+                return (
+                    <div key={service.name} className="base__service">                       
+                        <span>{service.name}</span>
+                        <span>cost: {service.cost}</span>
+                        <span>amount:</span>
+                        <input 
+                            type="number"   
+                            onChange={e => {
+                                dispatch(changeBase({name: service.name, amount: e.target.value}))
+                            }} 
+                            value={service.amount}/>
+                        <div className="service__description"></div>
+                        <div className="base__cost">
+                            <span>Base cost:</span>
+                            <span>{baseCost}</span>
+                        </div>
+                    </div>
+                )
+            })
+            }
             
         </div>
     )
