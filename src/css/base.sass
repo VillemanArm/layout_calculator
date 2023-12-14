@@ -68,6 +68,44 @@ button
     border-radius: 11rem
     color: $primary-color
 
+
+.checkbox-label
+    display: flex
+    cursor: pointer
+    justify-content: center
+
+    &::before
+        content: ''
+        display: block
+        width: 26rem
+        height: 26rem
+
+        background-color: $input-background
+
+        border: 1rem solid rgba(255,255,255,.3)
+        border-radius: 4rem
+
+
+.checkbox
+    position: absolute
+    width: 0.1rem
+    height: 0.1rem
+    left: 20rem
+    clip: rect(0 0 0 0)
+    overflow: hiden
+    z-index: -1
+
+    &:checked + .checkbox-label:before
+        background:  $second-color url('../img/check.svg')
+        background-size: 22rem
+        background-repeat: no-repeat
+        background-position: 2rem
+
+.service-block
+    border: 3rem solid $primary-color
+    border-radius: 8rem
+    padding: 20rem 30rem
+
 @media (max-width: 768px)
     html 
         font-size: 0.07692307692307692vw
@@ -116,6 +154,7 @@ button
 
 @import blocks/layout-calculator
 @import blocks/base
+@import blocks/additional
 
 
 .visible

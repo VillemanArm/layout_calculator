@@ -15,9 +15,9 @@ const Component = () => {
                 return (
                     <div key={service.name} className="base__service">                       
                         <span 
-                            className="service-name"
+                            className="base__service-name"
                             onClick={e => {
-                                const description = e.target.closest('.base__service').querySelector('.service__description')
+                                const description = e.target.closest('.base__service').querySelector('.base__service-description')
                                 description.classList.toggle('visible')
                                 console.log(description)
                             }}
@@ -25,7 +25,7 @@ const Component = () => {
                             {service.name}
                         </span>
                         <span>cost: {service.cost} USD</span>
-                        <span>amount:</span>
+                        {/* <span>amount:</span> */}
                         <input 
                             type="number"  
                             min="0" 
@@ -34,7 +34,7 @@ const Component = () => {
                                 dispatch(changeBase({name: service.name, amount: e.target.value}))
                             }} 
                             value={service.amount}/>
-                        <span className="service__description">{service.description}</span>
+                        <span className="base__service-description">{service.description}</span>
                     </div>
                 )
             })

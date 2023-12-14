@@ -16,13 +16,19 @@ const Component = () => {
                     <div key={service.name} className="additional__service">                       
                         <span>{service.name}</span>
                         <span>cost: +{service.percentCost}%</span>
+                        <div>
                         <input 
-                            type="checkbox"   
-                            onChange={e => {
-                                dispatch(changeAdditional({name: service.name, isSelected: e.target.checked}))
-                            }} 
-                        />
-                        <div className="service__description"></div>
+                                className="checkbox"
+                                type="checkbox"  
+                                id={service.name} 
+                                onChange={e => {
+                                    dispatch(changeAdditional({name: service.name, isSelected: e.target.checked}))
+                                }} 
+                            />
+                        <label htmlFor={service.name} className="checkbox-label">
+
+                        </label>
+                        </div>
                     </div>
                 )
             })
