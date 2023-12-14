@@ -21,6 +21,7 @@ const Component = () => {
                                 className="checkbox"
                                 type="checkbox"  
                                 id={service.name} 
+                                checked={service.isSelected}
                                 onChange={e => {
                                     dispatch(changeAdditional({name: service.name, isSelected: e.target.checked}))
                                 }} 

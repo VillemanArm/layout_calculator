@@ -58,15 +58,16 @@ img
 
 button
     display: block
-    padding: 14rem 31rem
+    padding: 10rem 24rem
     box-sizing: border-box
 
-    font-size: 27rem
+    font-size: 26rem
+    line-height: 100%
 
-    background-color: $second-color
+    background-color: $background-color
     border: 3rem solid $second-color
     border-radius: 11rem
-    color: $primary-color
+    color: $second-color
 
 
 .checkbox-label
@@ -115,8 +116,8 @@ button
 
 @media (min-width: 48em)    
     button:hover
-        background-color: transparent
-        color: $second-color
+        background-color: $second-color
+        color: $primary-color
 
     a:hover
         text-decoration: underline
@@ -153,8 +154,9 @@ button
     //     border-radius: 0.8rem
 
 @import blocks/layout-calculator
-@import blocks/base
+@import blocks/baseBlock
 @import blocks/additional
+@import blocks/total
 
 
 .visible

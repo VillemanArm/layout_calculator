@@ -31,6 +31,12 @@ const Component = () => {
                             min="0" 
                             max='999'
                             onChange={e => {
+                                if (e.target.value > 999) {
+                                    e.target.value = 999
+                                } else if (e.target.value < 0) {
+                                    e.target.value = 0
+                                }
+                                e.target.value = Number(e.target.value)
                                 dispatch(changeBase({name: service.name, amount: e.target.value}))
                             }} 
                             value={service.amount}/>
