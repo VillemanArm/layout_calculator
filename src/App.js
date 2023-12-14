@@ -7,7 +7,7 @@ import Total from './components/Total';
 
 function App() {
   return (
-    <div className="App">
+    <div className="layout-calculator">
       <Header />
       <BaseBlock />
       <AdditionalBlock />    

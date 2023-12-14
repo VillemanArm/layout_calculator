@@ -10,28 +10,38 @@ const Component = () => {
     useEffect(() => { dispatch(calculate()) })
     
     return (
-        <div className="base">
+        <div className="base service-block">
             {baseServices.map(service => {
                 return (
                     <div key={service.name} className="base__service">                       
-                        <span>{service.name}</span>
-                        <span>cost: {service.cost}</span>
+                        <span 
+                            className="service-name"
+                            onClick={e => {
+                                const description = e.target.closest('.base__service').querySelector('.service__description')
+                                description.classList.toggle('visible')
+                                console.log(description)
+                            }}
+                        >
+                            {service.name}
+                        </span>
+                        <span>cost: {service.cost} USD</span>
                         <span>amount:</span>
                         <input 
-                            type="number"   
+                            type="number"  
+                            min="0" 
+                            max='999'
                             onChange={e => {
                                 dispatch(changeBase({name: service.name, amount: e.target.value}))
                             }} 
                             value={service.amount}/>
-                        <div className="service__description"></div>
-                        <div className="base__cost">
-                            <span>Base cost:</span>
-                            <span>{baseCost}</span>
-                        </div>
+                        <span className="service__description">{service.description}</span>
                     </div>
                 )
             })
             }
+            <div className="base__cost">
+                <span>Base cost: {baseCost} USD</span>
+            </div>
             
         </div>
     )

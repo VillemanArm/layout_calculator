@@ -10,14 +10,13 @@ const Component = () => {
 
     const showClearBtn = () => {
         if (total) {
-            return (<button className="header__btn" onClick={clearServices}>Clear</button>)
+            return (<button onClick={clearServices}>Clear</button>)
         }
     }
 
     return (
         <div className="total">
-            <span>Total cost:</span>
-            <span>{total}</span>
+            <span>Total cost: {total} USD</span>
             {showClearBtn()}  
         </div>
     )

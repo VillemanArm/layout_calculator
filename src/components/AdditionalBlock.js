@@ -10,7 +10,7 @@ const Component = () => {
     useEffect(() => { dispatch(calculate()) })    
     
     return (
-        <div className="additional">
+        <div className="additional service-block">
             {additionalServices.map(service => {
                 return (
                     <div key={service.name} className="additional__service">                       
