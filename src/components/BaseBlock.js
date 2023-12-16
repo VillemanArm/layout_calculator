@@ -24,8 +24,7 @@ const Component = () => {
                         >
                             {service.name}
                         </span>
-                        <span>cost: {service.cost} USD</span>
-                        {/* <span>amount:</span> */}
+                        <span className="base__service-cost">cost: {service.cost} USD</span>
                         <input 
                             type="number"  
                             min="0" 

@@ -14,7 +14,7 @@ const Component = () => {
             {additionalServices.map(service => {
                 return (
                     <div key={service.name} className="additional__service">                       
-                        <span>{service.name}</span>
+                        <span className="additional__service-name">{service.name}</span>
                         <span>cost: +{service.percentCost}%</span>
                         <div>
                         <input 
